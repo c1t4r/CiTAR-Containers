@@ -15,3 +15,5 @@ They can be pulled using docker or singularity as follows:
 >singularity pull docker://c1t4r/citar-containers
 
 >singularity pull shub://c1t4r/citar-containers
+
+* updated build: 2017-06-13-14-42
