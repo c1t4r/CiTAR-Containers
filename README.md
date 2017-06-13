@@ -16,6 +16,6 @@ They can be pulled using docker or singularity as follows:
 
 >singularity pull shub://c1t4r/citar-containers
 
-##Build History
+## Build History
 
 * updated build: 2017-06-13-14-42
