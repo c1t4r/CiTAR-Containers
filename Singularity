@@ -11,7 +11,7 @@ IncludeCmd: yes
 %files
     /usr/local/   /usr/local/
     /imports/*    /
-    /imports/.singularity.d/ /
+    /imports/.singularity.d /
 
 %post
     echo "Installing JUSTUS software package list"
