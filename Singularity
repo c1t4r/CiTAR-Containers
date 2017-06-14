@@ -8,10 +8,6 @@ IncludeCmd: yes
 %environment
     export PS1='\[\033[01;32m\]\u@${SINGULARITY_CONTAINER}@\h\[\033[01;34m\] \w \$\[\033[00m\] '
 
-%files
-    imports/*    /
-    imports/.singularity.d /
-
 %post
     echo "Installing JUSTUS software package list"
     yum -y install deltarpm
@@ -20,3 +16,13 @@ libXrender linux-firmware dos2unix perl-ExtUtils-Install libsepol hexedit libXi 
 
     yum clean all
     mv /usr/bin/ssh /usr/bin/ssh_orig
+    IMPORTDIR=$(mktemp -d)
+    cd $IMPORTDIR
+    git clone https://github.com/c1t4r/Plurality.git -b Development
+    mkdir $IMPORTDIR/files
+    cd Plurality/rootfs
+    git checkout-index -a -f --prefix=$IMPORTDIR/
+    rm -f /.singularity.d/actions/*
+    rsync --ignore-existing -rahvp . /
+    cd /
+    rm -rf $IMPORTDIR
