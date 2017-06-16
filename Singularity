@@ -3,9 +3,11 @@ From: centos:7
 IncludeCmd: yes
 
 %runscript
-    echo "This is what happens when you run the container..."
+echo "This code is executed as default run script. For now invoke a bash shell..."
+/bin/bash
 
 %environment
+# These environment settings are needed to make containers run JUSTUS software stack
 module() { eval `/usr/bin/modulecmd sh $*`; }
 export MODULEPATH=/opt/bwhpc/ul/modulefiles:/opt/bwhpc/common/modulefiles
 export PSM_SHAREDCONTEXTS_MAX=6 # do NOT allocate all HCs, leave remaining HCs for other MPI apps running simultaneously
