@@ -39,3 +39,5 @@ They can be pulled using docker or singularity as follows:
 * updated build: 2017-06-16-16-07
 
 * updated build: 2017-06-16-16-08
+
+* updated build: 2017-06-16-16-17
